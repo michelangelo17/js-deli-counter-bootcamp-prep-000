@@ -33,3 +33,21 @@ function currentLine(line) {
     return numberedLine.slice(0, -1);
   }
 }
+
+function currentLine(line) {
+  var copyOfLine = line.slice(0);
+  var howMany = copyOfLine.length;
+  var n = 1;
+  var numberedLine = 'The line is currently:';
+  var empty = "The line is currently empty.";
+  for (var i = 0; i < howMany; i++) {
+    var firstLine = copyOfLine[0];
+    numberedLine += ` ${n++}. ${firstLine},`;
+    copyOfLine.shift();
+  }
+  if (line.length > 0) {
+    return numberedLine.slice(0, -1);
+  } else {
+    return empty;
+  }
+}
